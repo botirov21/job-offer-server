@@ -7,7 +7,7 @@ exports.createNewJob = asyncHandler(async (req, res, next) => {
     const newJob = await Jobs.create({
         name: req.body.name,
         location: req.body.location,
-        experiance: req.body.experiance,
+        experience: req.body.experience,
         education: req.body.education,
         corporateType: req.body.corporateType,
         employmentType: req.body.employmentType,
@@ -52,16 +52,16 @@ exports.updateJob = asyncHandler(async (req, res) => {
     const updatedData = {
         name: req.body.name,
         location: req.body.location,
-        experiance: req.body.experiance,
+        experience: req.body.experience,
         education: req.body.education,
         corporateType: req.body.corporateType,
         employmentType: req.body.employmentType,
         salary: req.body.salary
     };
-    const updatedMotor = await Jobs.findByIdAndUpdate(req.params.id, updatedData);
+    const updatedJob = await Jobs.findByIdAndUpdate(req.params.id, updatedData);
     res.status(200).json({
         success: true, 
-        data: updatedMotor,
+        data: updatedJob,
     });
 });
 
