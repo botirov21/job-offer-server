@@ -8,8 +8,8 @@ const jobSchema = new mongoose.Schema(
       unique: true,
     },
     location: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
     experience: {
       type: String,
@@ -28,8 +28,20 @@ const jobSchema = new mongoose.Schema(
       required: true,
     },
     salary: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
+    },
+    role: {
+      type: String,
+      required: true,
+    },
+    responsibilities: {
+      type: String,
+      required: true,
+    },
+    idealCandidate: {
+      type: String,
+      required: true,
     }
   },
   {

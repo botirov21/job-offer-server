@@ -12,6 +12,9 @@ exports.createNewJob = asyncHandler(async (req, res, next) => {
         corporateType: req.body.corporateType,
         employmentType: req.body.employmentType,
         salary: req.body.salary,
+        role: req.body.role,
+        responsibilities: req.body.responsibilities,
+        idealCandidate: req.body.idealCandidate,
     });
     res.status(200).json({
         success: true,
