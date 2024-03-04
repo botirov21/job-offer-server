@@ -53,6 +53,13 @@ exports.getJobById = asyncHandler(async (req, res, next) => {
 
 // Update data
 exports.updateJob = asyncHandler(async (req, res) => {
+    const jobId = await Jobs.findById(req.params.id)
+    if(!jobId){
+        return res.status(404).json({
+            success: false,
+            error: "not found"
+        })
+    }
     const updatedData = {
         name: req.body.name,
         location: req.body.location,
@@ -66,7 +73,10 @@ exports.updateJob = asyncHandler(async (req, res) => {
         responsibilities: req.body.responsibilities,
         idealCandidate: req.body.idealCandidate,
     };
-    const updatedJob = await Jobs.findByIdAndUpdate(req.params.id, updatedData);
+    const updatedJob = await Jobs.findByIdAndUpdate(req.params.id, updatedData, {
+        new: true,
+        runValidators: true,
+      });
     res.status(200).json({
         success: true, 
         data: updatedJob,
