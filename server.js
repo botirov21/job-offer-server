@@ -30,7 +30,7 @@ if (process.env.NOD_ENV === "development") {
 
 app.use("/api/v1/jobs", require("./routes/job.route"));
 app.use("/api/v1/auth", require("./routes/auth.route"));
-
+app.use("/api/v1/adminAuth", require("./routes/adminAuth.route"));
 
 const PORT = process.env.PORT || 3000;
 
